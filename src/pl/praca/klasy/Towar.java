@@ -4,11 +4,15 @@ import java.util.UUID;
 
 public class Towar {
 
-	protected String uniqueID = UUID.randomUUID().toString();
+	int uniqueID;
+
+	static int ID = 1;
 	protected double price;
 
 	public Towar(double d) {
 		this.price = d;
+		uniqueID = ID;
+		ID++;
 	}
 	
 	public double getPrice() {
@@ -19,7 +23,7 @@ public class Towar {
 		this.price = price;
 	}
 
-	public String getUniqueID() {
+	public int getUniqueID() {
 		return uniqueID;
 	}
 

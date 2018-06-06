@@ -4,8 +4,9 @@ import java.util.UUID;
 
 public class Kierownik extends Osoba {
 
-	protected String uniqueID = UUID.randomUUID().toString();
-	
+	int uniqueID;
+
+	static int ID = 1;
 	protected String stats;
 	
 	
@@ -15,6 +16,8 @@ public class Kierownik extends Osoba {
 		this.name = name;
 		this.secondName = secondName;
 		this.addres = addres;
+		uniqueID = ID;
+		ID++;
 	}
 	
 	public String getStats() {
@@ -24,7 +27,8 @@ public class Kierownik extends Osoba {
 	public void setStats(String stats) {
 		this.stats = stats;
 	}
-	public String getUniqueID() {
+
+	public int getUniqueID() {
 		return uniqueID;
 	}
 

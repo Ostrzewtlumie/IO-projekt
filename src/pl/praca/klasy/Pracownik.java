@@ -4,16 +4,20 @@ import java.util.UUID;
 
 public class Pracownik extends Osoba {
 
-	String uniqueID = UUID.randomUUID().toString(); 
+	int uniqueID;
+
+	static int ID = 1;
 	
 	public Pracownik(String name, String secondName, String addres) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.secondName = secondName;
 		this.addres = addres;
+		uniqueID = ID;
+		ID++;
 	}
 	
-	public String getUniqueID() {
+	public int getUniqueID() {
 		return uniqueID;
 	}
 	

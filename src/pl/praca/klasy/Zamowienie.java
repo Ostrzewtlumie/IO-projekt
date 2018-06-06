@@ -5,10 +5,13 @@ import java.util.UUID;
 public class Zamowienie {
 
 	protected String payment;
-	protected String uniqueID = UUID.randomUUID().toString();
-	
+	int uniqueID;
+
+	static int ID = 1;
 	public Zamowienie(String payment) {
 		this.payment = payment;
+		uniqueID = ID;
+		ID++;
 	}
 
 	public String getPayment() {
@@ -19,13 +22,13 @@ public class Zamowienie {
 		this.payment = payment;
 	}
 
-	public String getUniqueID() {
+	public int getUniqueID() {
 		return uniqueID;
 	}
 
 	@Override
 	public String toString() {
-		return "Zamowienie [payment=" + payment + ", uniqueID=" + uniqueID + "]";
+		return "Zamowienie [  uniqueID= " + uniqueID +"payment= " + payment + "]";
 	}
 	
 	
