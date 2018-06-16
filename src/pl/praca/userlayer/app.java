@@ -35,21 +35,6 @@ public class app {
 		}
 	}
 
-	private static void userLogic() {
-		System.out.println("witam uzytkowniku");		
-	}
-
-	private static void workerLogic() {
-		System.out.println("witam pracowniku");
-		
-	}
-
-	private static void managerLogic() {
-
-		System.out.println("witam kierowniku");
-		
-	}
-
 	private static void intializeUsersInDatabases() {
 		
 		Klient defaultCustomer = new Klient("Jan","Kowalski","adres","haslo");
@@ -63,8 +48,7 @@ public class app {
 		
 		Kierownik defaultManager = new Kierownik("Rychu","Ken","adres","haslo2");
 		managersData.put(defaultManager.getSecondName(), defaultManager.getPassword());
-		
-		
+
 	}
 
 	private static int checkLoginData() {
@@ -101,6 +85,39 @@ public class app {
 				}		
 			}		
 		}
+		
+	}
+	
+	private static void userLogic() {
+		System.out.println("witam uzytkowniku");	
+		/* do zaimlementowania
+		addOrder();
+		deleteOder();
+		chechOrder();
+		showOrders();
+		*/
+	}
+
+	private static void workerLogic() {	
+		/* do zaimlementowania
+		 addCustomer();
+		 deleteCustomer();
+		 showCustomers();
+		 changeChart();
+		 
+		 */
+		System.out.println("witam pracowniku");
+		
+	}
+
+	private static void managerLogic() {
+		System.out.println("witam kierowniku");
+		
+		/* do zaimlementowania
+		 addWorker();
+		 deleteWorker();
+		 shoWorkers();
+		 */
 		
 	}
 
