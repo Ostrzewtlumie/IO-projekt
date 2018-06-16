@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class Zamowienie {
 
-	protected String payment;
-	int uniqueID;
+    int uniqueID;
+    static int ID = 1;
+    protected String payment;
 
-	static int ID = 1;
 	public Zamowienie(String payment) {
 		this.payment = payment;
 		uniqueID = ID;
@@ -28,7 +28,7 @@ public class Zamowienie {
 
 	@Override
 	public String toString() {
-		return "Zamowienie [  uniqueID= " + uniqueID +"payment= " + payment + "]";
+		return "Zamowienie [  uniqueID=" + uniqueID +"payment=" + payment + "]";
 	}
 	
 	

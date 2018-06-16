@@ -1,11 +1,11 @@
 package pl.praca.klasy;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Pracownik extends Osoba {
 
 	int uniqueID;
-
 	static int ID = 1;
 	
 	public Pracownik(String name, String secondName, String addres) {
@@ -63,7 +63,10 @@ public class Pracownik extends Osoba {
 		return "Pracownik [uniqueID=" + uniqueID + ", name=" + name + ", secondName=" + secondName + ", addres="
 				+ addres + "]";
 	}
-	
-	
+
+	public void addCustomer(Klient customer, List<Klient> customersList)
+    {
+        customersList.add(customer);
+    }
 	
 }

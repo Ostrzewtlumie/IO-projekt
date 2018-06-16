@@ -5,7 +5,6 @@ import java.util.UUID;
 public class Klient extends Osoba {
 
 	int uniqueID;
-	
 	static int ID = 1;
 		
 	public Klient(String name, String secondName, String addres) {

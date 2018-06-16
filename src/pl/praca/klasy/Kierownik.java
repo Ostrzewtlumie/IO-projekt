@@ -5,7 +5,6 @@ import java.util.UUID;
 public class Kierownik extends Osoba {
 
 	int uniqueID;
-
 	static int ID = 1;
 	protected String stats;
 	

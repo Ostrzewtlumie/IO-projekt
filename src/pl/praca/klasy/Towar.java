@@ -5,7 +5,6 @@ import java.util.UUID;
 public class Towar {
 
 	int uniqueID;
-
 	static int ID = 1;
 	protected double price;
 
