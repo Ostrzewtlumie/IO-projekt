@@ -7,11 +7,12 @@ public class Klient extends Osoba {
 	int uniqueID;
 	static int ID = 1;
 		
-	public Klient(String name, String secondName, String addres) {
+	public Klient(String name, String secondName, String addres, String password) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.secondName = secondName;
 		this.addres = addres;
+		this.password = password;
 		uniqueID = ID;
 		ID++;
 	}
@@ -60,6 +61,18 @@ public class Klient extends Osoba {
 	public String toString() {
 		return "Klient [uniqueID=" + uniqueID + ", name=" + name + ", secondName=" + secondName + ", addres=" + addres
 				+ "]";
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	@Override
+	public void setPassword(String password) {
+		this.password = password;
+		
 	}
 	
 

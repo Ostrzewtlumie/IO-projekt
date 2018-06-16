@@ -9,6 +9,8 @@ public abstract class Osoba {
 	
 	protected String addres;
 	
+	protected String password;
+	
 	public abstract String getName();
 
 	public abstract void setName(String name);
@@ -20,6 +22,12 @@ public abstract class Osoba {
 	public abstract  String getAddres();
 
 	public abstract  void setAddres(String addres);
+
+	public abstract  String getPassword();
+
+	public abstract void setPassword(String password);
+	
+	
 
 	
 }

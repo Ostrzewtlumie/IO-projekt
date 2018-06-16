@@ -8,11 +8,12 @@ public class Pracownik extends Osoba {
 	int uniqueID;
 	static int ID = 1;
 	
-	public Pracownik(String name, String secondName, String addres) {
+	public Pracownik(String name, String secondName, String addres, String password) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.secondName = secondName;
 		this.addres = addres;
+		this.password = password;
 		uniqueID = ID;
 		ID++;
 	}
@@ -68,5 +69,17 @@ public class Pracownik extends Osoba {
     {
         customersList.add(customer);
     }
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	@Override
+	public void setPassword(String password) {
+		this.password = password;
+		
+	}
 	
 }

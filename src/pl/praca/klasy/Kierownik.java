@@ -10,11 +10,12 @@ public class Kierownik extends Osoba {
 	
 	
 
-	public Kierownik(String name, String secondName, String addres) {
+	public Kierownik(String name, String secondName, String addres, String password) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.secondName = secondName;
 		this.addres = addres;
+		this.password = password;
 		uniqueID = ID;
 		ID++;
 	}
@@ -72,6 +73,17 @@ public class Kierownik extends Osoba {
 	public String toString() {
 		return "Kierownik [uniqueID=" + uniqueID + ", stats=" + stats + ", name=" + name + ", secondName=" + secondName
 				+ ", addres=" + addres + "]";
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	@Override
+	public void setPassword(String password) {
+		this.password = password;		
 	}
 	
 

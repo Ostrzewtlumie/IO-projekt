@@ -8,14 +8,17 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class app {
-	static Map <String, String> usersData = new HashMap<>();
-
+	static Map <String, String> customersData = new HashMap<>();
 	static Map <String, String> workesData = new HashMap<>();
-
 	static Map <String, String> managersData = new HashMap<>();
+	
+	static List<Klient> customersList = new ArrayList<>();
+	static List<Pracownik> workersList = new ArrayList<>();
+	static List<Kierownik> ordersList = new ArrayList<>();
 	public static void main(String[] args) {
 		
 		intializeUsersInDatabases();
+		
 		int whoIsLogged = checkLoginData();
 		
 		switch(whoIsLogged)
@@ -48,14 +51,19 @@ public class app {
 	}
 
 	private static void intializeUsersInDatabases() {
-		usersData.put("kowalski", "haslo");
-		usersData.put("nowak", "haslo1");
 		
-		workesData.put("kowalski", "haslo2");
-		workesData.put("nowak", "haslo3");
+		Klient defaultCustomer = new Klient("Jan","Kowalski","adres","haslo");
 		
-		managersData.put("kowalski", "haslo4");
-		managersData.put("nowak", "haslo5");
+		customersList.add(defaultCustomer);
+		customersData.put(defaultCustomer.getSecondName(),  defaultCustomer.getPassword());
+		
+		Pracownik  defaultWorker = new Pracownik("Wojciech","Nowak","adres","haslo1");
+		workersList.add(defaultWorker);
+		workesData.put(defaultWorker.getSecondName(), defaultWorker.getPassword());
+		
+		Kierownik defaultManager = new Kierownik("Rychu","Ken","adres","haslo2");
+		managersData.put(defaultManager.getSecondName(), defaultManager.getPassword());
+		
 		
 	}
 
@@ -70,8 +78,7 @@ public class app {
 			System.out.println("Podaj haslo uzytkownika: ");
 			input = new Scanner(System.in);
 			String userPassword = input.nextLine();
-			
-			for(Map.Entry<String, String> entry :  usersData.entrySet())
+			for(Map.Entry<String, String> entry :  customersData.entrySet())
 			{
 				if(entry.getKey().equals(userName) && entry.getValue().equals(userPassword))
 				{
