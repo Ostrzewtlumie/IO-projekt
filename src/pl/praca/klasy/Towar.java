@@ -1,6 +1,5 @@
 package pl.praca.klasy;
 
-import java.util.UUID;
 
 public class Towar {
 

@@ -65,10 +65,6 @@ public class Pracownik extends Osoba {
 				+ addres + "]";
 	}
 
-	public void addCustomer(Klient customer, List<Klient> customersList)
-    {
-        customersList.add(customer);
-    }
 
 	@Override
 	public String getPassword() {
@@ -81,5 +77,31 @@ public class Pracownik extends Osoba {
 		this.password = password;
 		
 	}
+	
+	public void addCustomer(Klient customer, List<Klient> customersList)
+    {
+        customersList.add(customer);
+    }
+
+	public void deleteCustomer(String string, List<Klient> customersList) {
+		
+		for(Klient klient: customersList)
+		{
+			if(klient.getSecondName().equals(string))
+			{
+				customersList.remove(klient);
+			}
+		}
+	}
+
+	public void showCustomers(List<Klient> customersList) {
+		for(Klient klient: customersList)
+		{
+			System.out.println(klient.toString());
+		}
+		
+	}
+	
+	
 	
 }

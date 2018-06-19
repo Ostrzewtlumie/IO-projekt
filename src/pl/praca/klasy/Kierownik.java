@@ -1,5 +1,6 @@
 package pl.praca.klasy;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Kierownik extends Osoba {
@@ -84,6 +85,32 @@ public class Kierownik extends Osoba {
 	@Override
 	public void setPassword(String password) {
 		this.password = password;		
+	}
+
+	public void addWorker(Pracownik pracownik, List<Pracownik> workersList) {
+	      workersList.add(pracownik);
+
+	}
+
+	public void deleteCustomer(String string, List<Pracownik> workersList) {
+		
+		for(Pracownik pracownik: workersList)
+		{
+			if(pracownik.getSecondName().equals(string))
+			{
+				workersList.remove(pracownik);
+			}
+		}
+		
+		
+	}
+
+	public void showWorkers(List<Pracownik> workersList) {
+		for(Pracownik pracownik: workersList)
+		{
+			System.out.println(pracownik.toString());
+		}
+		
 	}
 	
 

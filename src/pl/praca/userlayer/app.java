@@ -14,39 +14,42 @@ public class app {
 	
 	static List<Klient> customersList = new ArrayList<>();
 	static List<Pracownik> workersList = new ArrayList<>();
-	static List<Kierownik> ordersList = new ArrayList<>();
+	
 	public static void main(String[] args) {
 		
-		intializeUsersInDatabases();
+		Klient defaultCustomer = new Klient("Jan","Kowalski","adres","haslo");
+		Pracownik  defaultWorker = new Pracownik("Wojciech","Nowak","adres","haslo1");
+		Kierownik defaultManager = new Kierownik("Rychu","Ken","adres","haslo2");
+		intializeUsersInDatabases(defaultCustomer,defaultWorker,defaultManager);
 		
 		int whoIsLogged = checkLoginData();
 		
 		switch(whoIsLogged)
 		{
 			case 1:
-				userLogic();
+				userLogic(defaultCustomer);
 				break;
 			case 2:
-				workerLogic();
+				workerLogic(defaultWorker);
 				break;
 			case 3:
-				managerLogic();
-				break;
+				managerLogic(defaultManager);
+				break; 
 		}
 	}
 
-	private static void intializeUsersInDatabases() {
+	private static void intializeUsersInDatabases(Klient defaultCustomer, Pracownik defaultWorker, Kierownik defaultManager) {
 		
-		Klient defaultCustomer = new Klient("Jan","Kowalski","adres","haslo");
+		
 		
 		customersList.add(defaultCustomer);
 		customersData.put(defaultCustomer.getSecondName(),  defaultCustomer.getPassword());
 		
-		Pracownik  defaultWorker = new Pracownik("Wojciech","Nowak","adres","haslo1");
+		
 		workersList.add(defaultWorker);
 		workesData.put(defaultWorker.getSecondName(), defaultWorker.getPassword());
 		
-		Kierownik defaultManager = new Kierownik("Rychu","Ken","adres","haslo2");
+
 		managersData.put(defaultManager.getSecondName(), defaultManager.getPassword());
 
 	}
@@ -83,40 +86,53 @@ public class app {
 				{
 					return whoIsLogging = 3;
 				}		
-			}		
+			}	
+			
+			System.out.println("Niepoprawne dane");
 		}
 		
 	}
 	
-	private static void userLogic() {
+	private static void userLogic(Klient defaultCustomer) {
+		List<Zamowienie> ordersList = new ArrayList<>();
+		int nrZamowienia = 0;
+		
 		System.out.println("witam uzytkowniku");	
 		/* do zaimlementowania
-		addOrder();
-		deleteOder();
-		chechOrder();
+		checkOrder();
 		showOrders();
 		*/
+		
+		defaultCustomer.addOrder(new Zamowienie("Gotownka"), ordersList);
+		defaultCustomer.deleteOrder(nrZamowienia,ordersList);
+		defaultCustomer.showOrders(ordersList);
+		
 	}
 
-	private static void workerLogic() {	
+	private static void workerLogic(Pracownik defaultWorker) {	
 		/* do zaimlementowania
-		 addCustomer();
-		 deleteCustomer();
-		 showCustomers();
 		 changeChart();
-		 
 		 */
 		System.out.println("witam pracowniku");
+		defaultWorker.addCustomer(new Klient("Adam", "Boch", "Lesna", "pass"), customersList);
+		
+		defaultWorker.deleteCustomer("Nowak", customersList);
+		
+		defaultWorker.showCustomers(customersList);
 		
 	}
 
-	private static void managerLogic() {
+	private static void managerLogic(Kierownik defaultManager) {
 		System.out.println("witam kierowniku");
 		
+		defaultManager.addWorker(new Pracownik("Olek","Strzal","Polna","password"), workersList);
+		
+		defaultManager.deleteCustomer("Kowal", workersList);
+		
+		defaultManager.showWorkers(workersList);
+		
 		/* do zaimlementowania
-		 addWorker();
-		 deleteWorker();
-		 shoWorkers();
+		
 		 */
 		
 	}

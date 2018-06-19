@@ -1,5 +1,6 @@
 package pl.praca.klasy;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Klient extends Osoba {
@@ -72,6 +73,29 @@ public class Klient extends Osoba {
 	@Override
 	public void setPassword(String password) {
 		this.password = password;
+		
+	}
+
+	public void addOrder(Zamowienie zamowienie, List<Zamowienie> ordersList) {
+		ordersList.add(zamowienie);
+	}
+
+	public void deleteOrder( int nrZamowienia, List<Zamowienie> ordersList) {
+		for(Zamowienie zamowienie: ordersList)
+		{
+			if(zamowienie.getUniqueID() == nrZamowienia)
+			{
+				ordersList.remove(zamowienie);
+			}
+		}
+		
+	}
+
+	public void showOrders(List<Zamowienie> ordersList) {
+		for(Zamowienie zamowienie: ordersList)
+		{
+			System.out.println(zamowienie.toString());
+		}
 		
 	}
 	
