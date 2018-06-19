@@ -1,5 +1,6 @@
 package pl.praca.klasy;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -77,21 +78,26 @@ public class Klient extends Osoba {
 	}
 
 	public void addOrder(Zamowienie zamowienie, List<Zamowienie> ordersList) {
+		System.out.println("Dodano zamowienie");
 		ordersList.add(zamowienie);
 	}
 
 	public void deleteOrder( int nrZamowienia, List<Zamowienie> ordersList) {
-		for(Zamowienie zamowienie: ordersList)
+		for (Iterator<Zamowienie> iterator = ordersList.iterator(); iterator.hasNext(); ) 
 		{
+			Zamowienie zamowienie = iterator.next();
+			
 			if(zamowienie.getUniqueID() == nrZamowienia)
 			{
-				ordersList.remove(zamowienie);
+				System.out.println("Ususnieto Zamowienie");
+				iterator.remove();
 			}
 		}
 		
 	}
 
 	public void showOrders(List<Zamowienie> ordersList) {
+		System.out.println("Lista zamowien: ");
 		for(Zamowienie zamowienie: ordersList)
 		{
 			System.out.println(zamowienie.toString());

@@ -1,5 +1,6 @@
 package pl.praca.klasy;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -88,17 +89,21 @@ public class Kierownik extends Osoba {
 	}
 
 	public void addWorker(Pracownik pracownik, List<Pracownik> workersList) {
+		System.out.println("Dodano pracownika");
 	      workersList.add(pracownik);
 
 	}
 
-	public void deleteCustomer(String string, List<Pracownik> workersList) {
+	public void deleteWorker(String string, List<Pracownik> workersList) {
 		
-		for(Pracownik pracownik: workersList)
+		for (Iterator<Pracownik> iterator = workersList.iterator(); iterator.hasNext(); ) 
 		{
+			Pracownik pracownik = iterator.next();
+			
 			if(pracownik.getSecondName().equals(string))
 			{
-				workersList.remove(pracownik);
+				System.out.println("Ususnieto pracownika");
+				iterator.remove();
 			}
 		}
 		
@@ -106,6 +111,7 @@ public class Kierownik extends Osoba {
 	}
 
 	public void showWorkers(List<Pracownik> workersList) {
+		System.out.println("Pracownicy:");
 		for(Pracownik pracownik: workersList)
 		{
 			System.out.println(pracownik.toString());

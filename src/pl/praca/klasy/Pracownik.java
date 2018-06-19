@@ -1,5 +1,6 @@
 package pl.praca.klasy;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -80,21 +81,26 @@ public class Pracownik extends Osoba {
 	
 	public void addCustomer(Klient customer, List<Klient> customersList)
     {
+		System.out.println("Dodano klienta");
         customersList.add(customer);
     }
 
 	public void deleteCustomer(String string, List<Klient> customersList) {
 		
-		for(Klient klient: customersList)
+		for (Iterator<Klient> iterator = customersList.iterator(); iterator.hasNext(); ) 
 		{
+			Klient klient= iterator.next();
+			
 			if(klient.getSecondName().equals(string))
 			{
-				customersList.remove(klient);
+				System.out.println("Ususnieto klienta");
+				iterator.remove();
 			}
 		}
 	}
 
 	public void showCustomers(List<Klient> customersList) {
+		System.out.println("Klienci");
 		for(Klient klient: customersList)
 		{
 			System.out.println(klient.toString());

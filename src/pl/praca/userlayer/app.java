@@ -95,42 +95,102 @@ public class app {
 	
 	private static void userLogic(Klient defaultCustomer) {
 		List<Zamowienie> ordersList = new ArrayList<>();
-		int nrZamowienia = 0;
+		int nrZamowienia;
 		
-		System.out.println("witam uzytkowniku");	
+		System.out.println("Witam kliencie " + defaultCustomer.getName());	
+		
+		
+		
+		System.out.println("1.Dodaj zamowienie");
+
+		System.out.println("2.Usun zamowienie");
+		
+		System.out.println("3.Wypisz zamowienia");
+		
+		Scanner input = new Scanner(System.in);
+		int choosenOption = input.nextInt();
+		
+		switch(choosenOption)
+		{
+		case 1:
+			defaultCustomer.addOrder(new Zamowienie("Gotowka"), ordersList);
+			break;
+		case 2:
+			System.out.println("Podaj id zamowienia do usuniecia:");
+		    input = new Scanner(System.in);
+			nrZamowienia = input.nextInt();
+			defaultCustomer.deleteOrder(nrZamowienia,ordersList);
+			break;
+		case 3:
+			defaultCustomer.showOrders(ordersList);
+			break; 
+		}
+		
 		/* do zaimlementowania
 		checkOrder();
-		showOrders();
 		*/
-		
-		defaultCustomer.addOrder(new Zamowienie("Gotownka"), ordersList);
-		defaultCustomer.deleteOrder(nrZamowienia,ordersList);
-		defaultCustomer.showOrders(ordersList);
-		
 	}
 
 	private static void workerLogic(Pracownik defaultWorker) {	
 		/* do zaimlementowania
 		 changeChart();
 		 */
-		System.out.println("witam pracowniku");
-		defaultWorker.addCustomer(new Klient("Adam", "Boch", "Lesna", "pass"), customersList);
+		System.out.println("Witam pracowniku " + defaultWorker.getName());
 		
-		defaultWorker.deleteCustomer("Nowak", customersList);
+
+		System.out.println("1.Dodaj klienta");
+
+		System.out.println("2.Usun klienta");
 		
-		defaultWorker.showCustomers(customersList);
+		System.out.println("3.Wypisz klientow");
 		
+		Scanner input = new Scanner(System.in);
+		int choosenOption = input.nextInt();
+		
+		switch(choosenOption)
+		{
+		case 1:
+			defaultWorker.addCustomer(new Klient("Adam", "Nowak", "Lesna", "pass"), customersList);
+			break;
+		case 2:
+			System.out.println("Podaj id zamowienia do usuniecia:");
+		    input = new Scanner(System.in);
+		    String secondNameToDelete = input.nextLine();
+		    defaultWorker.deleteCustomer(secondNameToDelete, customersList);
+			break;
+		case 3:
+			defaultWorker.showCustomers(customersList);
+			break; 
+		}
 	}
 
 	private static void managerLogic(Kierownik defaultManager) {
-		System.out.println("witam kierowniku");
+		System.out.println("witam kierowniku " + defaultManager.getName());
+
+		System.out.println("1.Dodaj pracownika");
+
+		System.out.println("2.Usun pracownika");
 		
-		defaultManager.addWorker(new Pracownik("Olek","Strzal","Polna","password"), workersList);
+		System.out.println("3.Wypisz pracownikow");
+
+		Scanner input = new Scanner(System.in);
+		int choosenOption = input.nextInt();
 		
-		defaultManager.deleteCustomer("Kowal", workersList);
-		
-		defaultManager.showWorkers(workersList);
-		
+		switch(choosenOption)
+		{
+		case 1:
+			defaultManager.addWorker(new Pracownik("Olek","Kowal","Polna","password"), workersList);
+			break;
+		case 2:
+			System.out.println("Podaj id zamowienia do usuniecia:");
+		    input = new Scanner(System.in);
+		    String secondNameToDelete = input.nextLine();
+		    defaultManager.deleteWorker(secondNameToDelete, workersList);
+			break;
+		case 3:
+			defaultManager.showWorkers(workersList);
+			break; 
+		}
 		/* do zaimlementowania
 		
 		 */
